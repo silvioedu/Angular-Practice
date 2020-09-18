@@ -330,16 +330,71 @@
       </g>
     </svg>
 
-    <span>{{ title }} app está funfando!</span>
-
+    <!--<div>
+      <span>{{ title }} app está funfando!</span>
+    </div> -->
+    <div>
+      <span changeText> {{ title }} app está funfando!</span>
+    </div>
+  
+  
     <svg id="rocket-smoke" alt="Rocket Ship Smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632" viewBox="0 0 516.119 1083.632">
       <path id="Path_40" data-name="Path 40" d="M644.6,141S143.02,215.537,147.049,870.207s342.774,201.755,342.774,201.755S404.659,847.213,388.815,762.2c-27.116-145.51-11.551-384.124,271.9-609.1C671.15,139.365,644.6,141,644.6,141Z" transform="translate(-147.025 -140.939)" fill="#f5f5f5"/>
     </svg>
 
   </div>
 
+  <app-new-cmp></app-new-cmp>
 
-
+  <div>
+    Meses :
+    <select (change) = "change_months($event)">
+      <option *ngFor = "let i of months">{{ i }}</option>
+    </select>
+  </div>
+  <br>
+  <div>
+    <span *ngIf = "is_available; then condition1 else condition2"></span>
+    <ng-template #condition1>Condition is valid (condition1)</ng-template>
+    <ng-template #condition2>Condition is invalid (condition2)</ng-template>
+  </div>
+  <br>
+  <button (click) = "my_click_function($event)">
+    Click Me
+  </button>
+  <br>
+  <b>{{ title | uppercase }}</b>
+  <b>{{ title | lowercase }}</b>
+  <br><br>
+  <div style="width: 100%;">
+    <div style="width:40%;float:left;border:solid 1px black;">
+      <h1>Uppercase Pipe</h1>
+      <b>{{ title | uppercase }}</b>
+      <br>
+      <h1>Lowercase Pipe</h1>
+      <b>{{ title | lowercase }}</b>
+      <br>
+      <h1>Currency Pipe</h1>
+      <b>{{ 6589.23 | currency:"USD" }}</b><br>
+      <b>{{ 6589.23 | currency:"USD":true }}</b>
+      <br>
+      <h1>Date pipe</h1>
+      <b>{{ today_date | date: "d/M/y" }}</b>
+      <br>
+      <b>{{ today_date | date: "shortTime" }}</b>
+      <br>
+      <h1>Decimal pipe</h1>
+      <b>{{ 454.78787814 | number: '3.4-4' }}</b>      
+    </div>
+    <div style="width:40%;float:left;border:solid 1px black;">
+      <h1>Json Pipe</h1>
+      <b>{{ json_val | json }}</b>
+      <h1>Percent Pipe</h1>
+      <b>{{ 00.54565 | percent }}</b>
+      <h1>Slice Pipe</h1>
+      <b>{{ months | slice:2:6 }}</b >
+    </div>
+  </div>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
