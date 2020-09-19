@@ -405,6 +405,7 @@
   </div>
   -->
 
+  <!--
   <h1>Angular 7 Routing Demo</h1>
   <nav>
     <a routerLink = "/home">Home</a>
@@ -414,6 +415,26 @@
   <br><br>
   <h1>Service</h1>
   <b>{{ today_date }}</b>
+  <br><br>
+  <h1>{{ today_date }}</h1>
+  <h1>Service Property: {{ component_property }}</h1>
+  <app-new-cmp></app-new-cmp>
+  -->
+
+  <h3>Users Data</h3>
+  <ul>
+    <li *ngFor = "let p of person_data; let i = index">
+      {{p.name}}
+    </li>
+  </ul>
+
+  <form #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)">
+    <input type="text" name="emailid" placeholder="emailid" ngModel>
+    <br>
+    <input type="password" name="passwd" placeholder="passwd" ngModel>
+    <br>
+    <input type="submit" value="submit">
+  </form>
 
   <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
