@@ -421,6 +421,7 @@
   <app-new-cmp></app-new-cmp>
   -->
 
+  <!--
   <h3>Users Data</h3>
   <ul>
     <li *ngFor = "let p of person_data; let i = index">
@@ -435,6 +436,18 @@
     <br>
     <input type="submit" value="submit">
   </form>
+-->
+
+  <div>
+    <form [formGroup] = "formdata" (ngSubmit) = "onClickSubmit(formdata.value)">
+      <input type="text" class = "fortextbox" name = "emailid" placeholder = "emailid" formControlName = "emailid">
+      <br>
+      <input type="password" class = "fortextbox" name = "passwd" placeholder = "passwd" formControlName = "passwd">
+      <br>
+      <input type="submit" [disabled]="!formdata.valid" class="forsubmit" value="Log In">
+    </form>
+  </div>
+  <p>Email entered is: {{emailid}}</p>
 
   <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
